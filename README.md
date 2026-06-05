@@ -26,7 +26,24 @@ env/minesweeper_env.py   Gym-style environment (reset/step/render, flood-fill re
 agent/dqn_agent.py       CNN Q-network, replay buffer, Double DQN agent
 training/train.py        Training loop with linear epsilon decay
 training/evaluate.py     Greedy evaluation + win-rate measurement
+gui/app.py               Tkinter GUI: play yourself or watch the trained agent
 ```
+
+## GUI
+
+A desktop interface (Tkinter, ships with Python — no extra install needed):
+
+```bash
+python gui/app.py --rows 6 --cols 6 --mines 6
+```
+
+- **Mode: Human** — click cells to play yourself.
+- **Mode: AI** — click *Load Model*, pick your trained `.pt` file, then use
+  *AI Step* to advance one move at a time or *Auto Play* to watch it solve in real
+  time. The cell the agent is about to reveal is highlighted before it commits.
+
+The board size passed to the GUI must match the size the model was trained on
+(the network is sized to the board).
 
 ## Usage
 
