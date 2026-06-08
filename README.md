@@ -34,16 +34,27 @@ gui/app.py               Tkinter GUI: play yourself or watch the trained agent
 A desktop interface (Tkinter, ships with Python — no extra install needed):
 
 ```bash
-python gui/app.py --rows 6 --cols 6 --mines 6
+python gui/app.py        # Windows
+python3 gui/app.py       # macOS / Linux
 ```
 
+- Set **Rows / Cols / Mines** with the spinboxes and click **Apply Size** — works
+  for any board configuration, no command-line arguments needed.
 - **Mode: Human** — click cells to play yourself.
 - **Mode: AI** — click *Load Model*, pick your trained `.pt` file, then use
-  *AI Step* to advance one move at a time or *Auto Play* to watch it solve in real
-  time. The cell the agent is about to reveal is highlighted before it commits.
+  *AI Step* to advance one move at a time or *Auto Play* to watch it solve. The cell
+  the agent is about to reveal is highlighted before it commits.
 
-The board size passed to the GUI must match the size the model was trained on
-(the network is sized to the board).
+When watching the AI, the board size must match the size the model was trained on
+(the network is sized to the board). If you change the size after loading a model,
+the GUI drops it and asks you to load one trained on the new size.
+
+### macOS notes
+
+- Use `python3` / `pip3` rather than `python` / `pip`.
+- Install Python from python.org (it includes Tkinter). If the GUI fails with
+  `No module named '_tkinter'` (common with Homebrew Python), run
+  `brew install python-tk` or use the python.org build.
 
 ## Usage
 
